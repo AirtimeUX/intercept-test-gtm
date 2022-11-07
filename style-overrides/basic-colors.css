@@ -1,0 +1,31 @@
+<style>
+  airtime-widget::part(overlay) {
+    /* Add an overlay box with custom styling */
+  }
+
+  airtime-widget::part(container) {
+    /* Style the main container */
+    font-family: 'Roboto', sans-serif;
+    border-color: #7ca9c0;
+    border-radius: 4px;
+  }
+
+  airtime-widget::part(content) {
+    /* Style the paragraph with text content */
+  }
+
+  airtime-widget::part(cta-button) {
+    /* Style the main CTA button */
+    background-color: #0271a6;
+    border-radius: 4px;
+  }
+
+  airtime-widget::part(cta-button):hover {
+    /* Style the main CTA button in :hover state */
+    background-color: #007fbe;
+  }
+
+  airtime-widget::part(close-button) {
+    /* Style the main close button */
+  }
+</style>

@@ -1,0 +1,25 @@
+<style>
+  airtime-widget::part(overlay) {
+    /* Add an overlay box with custom styling */
+  }
+
+  airtime-widget::part(container) {
+    /* Style the main container */
+  }
+
+  airtime-widget::part(content) {
+    /* Style the paragraph with text content */
+  }
+
+  airtime-widget::part(cta-button) {
+    /* Style the main CTA button */
+  }
+
+  airtime-widget::part(cta-button):hover {
+    /* Style the main CTA button in :hover state */
+  }
+
+  airtime-widget::part(close-button) {
+    /* Style the main close button */
+  }
+</style>

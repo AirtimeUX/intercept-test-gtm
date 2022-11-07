@@ -1,0 +1,63 @@
+https://airtimeux.github.io/intercept-test-gtm/
+
+learnings:
+  we can't immediately show the popup on custom events, loading it takes time (~0.5s)
+  if two events are fired, airtime script is loaded twice. test what happens if we load it multiple times
+
+--------
+css
+
+local style is applied, but as soon as the popup is imported it's overriden
+  - even if the recruiting is off
+  - but if it's increased specificity it works
+
+
+options:
+  .override class
+  css variables (not good for positioning)
+  inject into top of head
+    depends on where GTM is - it's in the bottom?
+    or configurable with style-loader?
+
+
+Most CSS-in-JS solutions inject their styles at the bottom of the HTML <head>, which gives MUI precedence over your custom styles. To remove the need for !important, you need to change the CSS injection order. Here's a demo of how it can be done in MUI.
+
+You can specify the class name in any order in the p tag but the CSS override rules suggest that the order of preference is given to the class that is defined last in CSS.
+
+LATER final solution
+  used a web component with a shadow dom for isolation and ::parts styling api for injection
+
+------
+
+exit intent
+
+https://airtimeux.github.io/intercept-test-gtm/
+
+exit intent recipes
+
+https://stuifbergen.com/2015/11/gtm-exit-intent-trigger/
+https://popupsmart.com/help/targeting/exit-intent-targeting/
+https://wisepops.com/mobile-exit-intent
+https://www.picreel.com/exit-intent-overlays/
+https://github.com/panphora/polite-email-popup#readme
+
+https://www.webtips.dev/how-to-make-an-effective-exit-intent-popup-in-javascript
+https://dev.to/deammer/building-an-exit-popup-with-javascript-120c
+
+https://github.com/carlsednaoui/ouibounce/blob/master/source/ouibounce.js
+https://github.com/danhayden/exit-intent
+https://www.zigpoll.com/blog/exit-intent-mobile
+
+The more complex exit intent platforms offer more precise methods to predict user actions. They analyze the user’s behavior on previous pages and the movement across the whole site, not just the top or movement away from the window. In addition, such algorithms can spot resting movements or particular mouse pathways.
+
+exit intent
+web: move cursor up
+web: pattern detection
+mobile: idle time
+mobile: scroll up fast
+
+Mobile:
+Signal 1: Back Button Pressing
+Signal 2: Scroll Up (possibly only after user scrolled down 50%)
+Signal 3: Tab Switch
+Signal 4: Idle Time

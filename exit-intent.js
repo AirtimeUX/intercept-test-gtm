@@ -1,17 +1,18 @@
 (function () {
+
   // If not on a touchscreen, detect exit intent based on when the mouse leaves the window
   function detectIfMouse() {
     function mouseLeaveListener (e) {
       window.dataLayer && window.dataLayer.push({'event': 'airtime.exit-intent'});
-      document.removeEventListener('mouseleave', mouseLeaveListener);
+      document.documentElement.removeEventListener('mouseleave', mouseLeaveListener);
     }
 
-    document.addEventListener('mouseleave', mouseLeaveListener , false); 
+    document.documentElement.addEventListener('mouseleave', mouseLeaveListener , false);
   }
 
   // If on a touchscreen, detect exit intent based on idle time
   function detectIfTouch () {
-    var idleTimeLimit = 10000;
+    var idleTimeLimit = 5000;
     var throttleTimeLimit = 2000;
     var timeout;
 
